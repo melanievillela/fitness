@@ -2,16 +2,33 @@
     display: flex;
 }
 
+button {
+    padding: 5px;
+    margin-top: 15px;
+}
+
 #calendar {
     width: 30%;
-    background-color: yellow;
+    overflow-y: auto;
+}
+
+#calendar h3{
+    color: #FF0073;
+}
+
+.calendar-item {
+    width: 200px;
+    font-family: 'Poppins', sans-serif;
+
 }
 
 #class {
-    background-color: chartreuse;
-    min-height: 300px;
+    min-height: 550px;
     width: 75%;
     margin-bottom: 25px;
+    padding: 15px 25px;
+    font-family: 'Poppins', sans-serif;
+    border-bottom: 1px solid #bdbdbd;
 }
 
 #classes-inner {
@@ -21,7 +38,6 @@
 
 #classes-outer {
     width: 50%;
-    background-color: aqua;
 }
 
 .column {
@@ -31,10 +47,12 @@
 }
 
 h1 {
-    font-family: 'Bowlby One SC', cursive;
+    font-family: 'Yeseva One', cursive;
     margin: 0;
-    padding: 25px;
+    padding: 5px;
     font-size: 3em;
+    color: #FF0073;
+    text-shadow: 2px 2px #bdbdbd;
 }
 
 h2 {
@@ -42,11 +60,20 @@ h2 {
     font-size: 2.5em;
 }
 
+h3 {
+    padding-right: 15px;
+}
+
 #header {
+    margin-top: 15px;
     width: 100%;
-    height: 150px;
-    background-color: magenta;
+    height: 250px;
     text-align: center;
+}
+
+#logo {
+    height: 150px;
+    width: auto;
 }
 
 .main {
@@ -55,6 +82,13 @@ h2 {
 
 #order {
     width: 20%;
-    background-color: blueviolet;
+}
 
+.row {
+    display: flex;
+    align-items: center;
+}
+
+select {
+    padding: 5px;
 }
