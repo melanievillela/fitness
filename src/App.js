@@ -12,7 +12,7 @@ class App extends Component {
         className: "Absolute Abs",
         classDay: "Monday",
         classTime: "3:00 PM",
-        image: "./Images/Absolute_Abs.jpg",
+        image: "Absolute_Abs.jpg",
         instructor: "Georgia Thompson",
         summary: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
                   Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
@@ -23,7 +23,7 @@ class App extends Component {
         className: "Sultry Stretchers",
         classDay: "Tuesday",
         classTime: "9:00 AM",
-        image: "./Images/Sultry_Stretchers.jpg",
+        image: "Sultry_Stretchers.jpg",
         instructor: "Anita Mendoza",
         summary: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
                   Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
@@ -34,7 +34,7 @@ class App extends Component {
         className: "Kickstart Cardio",
         classDay: "Wednesday",
         classTime: "3:00 PM",
-        image: "./Images/Kickstart_Cardio.jpg",
+        image: "Kickstart_Cardio.jpg",
         instructor: "Natalie Jones",
         summary: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
                   Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
@@ -45,7 +45,7 @@ class App extends Component {
         className: "Glorious Glutes",
         classDay: "Thursday",
         classTime: "9:00 AM",
-        image: "./Images/Glorious_Glutes.jpg",
+        image: "Glorious_Glutes.jpg",
         instructor: "Stephanie Larson",
         summary: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
                   Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
@@ -56,7 +56,7 @@ class App extends Component {
         className: "Mindful Meditations",
         classDay: "Friday",
         classTime: "3:00 PM",
-        image: "./Images/Mindful_Meditations.jpg",
+        image: "Mindful_Meditations.jpg",
         instructor: "Gia Ashani",
         summary: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
                   Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
@@ -72,19 +72,30 @@ class App extends Component {
     const classArray = this.state.classes;
     
     classArray.forEach(classItem => {
-      if(name === classItem.className) {        
+      if(name === classItem.className) { 
         this.setState(previousState => ({
           enrolled: [...previousState.enrolled, classItem]
-        }))
-      }
+        }))  
+      }        
     });
+  }
+
+  //Remove class & update state of enrolled
+  removedClass = (name) => {
+    const enrolledArray = this.state.enrolled;
+
+    const updatedEnrolledArray = enrolledArray.filter(item => item.className !== name);
+    this.setState({
+      enrolled: updatedEnrolledArray
+    })
   }
     
   render() {
+
     return (
       <div className="app">
-        <Classes {...this.state} selectedClass={this.selectedClass}/>
-        <Calendar {...this.state} />
+        <Classes {...this.state} selectedClass={this.selectedClass} />
+        <Calendar {...this.state} removedClass={this.removedClass} />
         <Order />
       </div>
     );
@@ -92,68 +103,3 @@ class App extends Component {
 }
 
 export default App;
-
-
-/*
-
-    for (let i=0; i<this.state.classes.length; i++) {
-      if (name === this.state.classes[i].className) {
-        const classToAdd = this.state.classes[i];
-        console.log("Class to add: ", classToAdd);
-        if (this.state.enrolled.length === 0) {
-          this.setState({
-            enrolled: [classToAdd]
-          })
-        }
-        else {
-          console.log("Enrolled 1: ", this.state.enrolled)
-          for (let j=0; j<this.state.enrolled.length; j++) {
-            if (classToAdd !== this.state.enrolled[j]) {
-              this.setState(previousState => ({
-                enrolled: [...previousState.enrolled, classToAdd]
-              }))
-            }
-          }           
-          console.log("Enrolled 2: ", this.state.enrolled)
-        }
-      }
-    }
-
-
-
-
-
-            console.log(this.state.enrolled)
-            this.state.enrolled.forEach(enrolledItem => {
-              if (name !== enrolledItem.className) {               
-                this.setState(previousState => ({
-                  enrolled: [...previousState.enrolled, classItem]
-                }))    
-                console.log(enrolledItem.className)
-            
-              } else{console.log("Duplicate")}        
-            });
-
-
-                    if (this.state.enrolled.length === 0) {
-          this.setState(previousState => ({
-            enrolled: [...previousState.enrolled, classItem]
-          }))
-        } //If enrolled isn't empty make sure the class isn't already added so no duplicate classes are added
-          else {    });
-
-
-           
-    this.state.classes.forEach(classItem => {
-      if (name === classItem.className) {
-            this.state.enrolled.forEach(enrolledItem => {
-              if (name !== enrolledItem.className) {
-                console.log("Adding to state!");
-                this.setState(previousState => ({
-                  enrolled: [...previousState.enrolled, classItem]
-                }))
-              } else {console.log("Already in state!")}
-            })
-          }
-      })
-            */

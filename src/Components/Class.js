@@ -1,19 +1,21 @@
 import React, { Component } from 'react';
 
 class Class extends Component {
-
+ 
   addClass = (e) => {
     e.preventDefault();
-    let classSelection = e.target.name;
-    //console.log("Class Component: ", classSelection);
+    const classSelection = e.target.name;
+    const disabledBtn = e.target.querySelector("button");
     this.props.selectedClass(classSelection);
+    disabledBtn.setAttribute("disabled", true);
   }
 
   render() {
+
     return (
         <div className="column" id="class">
           <form className="column" onSubmit={this.addClass} name={this.props.name}>
-            {/* Want to add image here! */}
+            <img src={require(`../Images/${this.props.image}`)} alt="fitness" className="fitness-images"/>
             <div className="row"><h3>Class Name: </h3><p>{this.props.name}</p></div>
             <div className="row"><h3>Class Instructor: </h3><p>{this.props.instructor}</p></div>
             <div className="row"><h3>Class Description: </h3><p>{this.props.summary}</p></div>
@@ -22,7 +24,7 @@ class Class extends Component {
               <option value="times">{this.props.time}</option>
             </select>
             <br />
-            <button>Add Class</button>
+            <button className="add" btnid={this.props.name}>Add Class</button>
           </form>
         </div>
     )

@@ -4,7 +4,7 @@ import Header from './Header'
 
 class Classes extends Component {
   render() {
-    let classesArray = this.props.classes;
+    const classesArray = this.props.classes;
 
     return (
         <div className="main column" id="classes-outer">
@@ -21,6 +21,7 @@ class Classes extends Component {
                     instructor={item.instructor}
                     summary={item.summary}
                     selectedClass={this.props.selectedClass}
+                    enrolled={this.props.enrolled}
                     />
                 )}              
             </div>
