@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import Calendar from './Components/Calendar' 
 import Classes from './Components/Classes' 
-import Order from './Components/Order' 
 
 class App extends Component {
   //Want to add multiple time slots in the future and loop through as options
@@ -96,7 +95,6 @@ class App extends Component {
       <div className="app">
         <Classes {...this.state} selectedClass={this.selectedClass} />
         <Calendar {...this.state} removedClass={this.removedClass} />
-        <Order />
       </div>
     );
   }

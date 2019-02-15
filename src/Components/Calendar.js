@@ -20,7 +20,6 @@ class Calendar extends Component {
     return (
       <div className="main column" id="calendar">
         <h2>Calendar</h2>  
-
         <div className=" column">
           {enrolledArray.map((item, index) =>
             <div key={index} className="calendar-item">
@@ -37,9 +36,3 @@ class Calendar extends Component {
 }
 
 export default Calendar;
-      
-
-
-/*
-
-*/
