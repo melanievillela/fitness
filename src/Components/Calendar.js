@@ -18,7 +18,7 @@ class Calendar extends Component {
     const enrolledArray = this.props.enrolled;
 
     return (
-      <div className="main column" id="calendar">
+      <div className="column" id="calendar">
         <h2>Calendar</h2>  
         <div className=" column">
           {enrolledArray.map((item, index) =>

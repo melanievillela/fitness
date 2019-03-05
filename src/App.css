@@ -1,5 +1,11 @@
-.app {
-    display: flex;
+#about-container {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, .5);
+}
+
+#about {
+    align-self: flex-end;
 }
 
 button {
@@ -12,32 +18,34 @@ button {
     overflow-y: auto;
 }
 
-#calendar h3{
-    color: #FF0073;
-}
-
 .calendar-item {
     width: 200px;
     font-family: 'Poppins', sans-serif;
     padding: 10px;
 }
 
-#class {
-    min-height: 1000px;
-    width: 75%;
+.class {
+    width: 30%;
     padding: 15px 25px;
     font-family: 'Poppins', sans-serif;
     border-bottom: 1px solid #bdbdbd;
     justify-content: space-around;
 }
 
-#classes-inner {
-    width: 100%;
-    overflow-y: scroll;
+#classes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
 }
 
-#classes-outer {
-    width: 60%;
+#classes-inner {
+    width: 100%;
+}
+
+.close {
+    padding-bottom: 10px;
+    cursor: pointer;
 }
 
 .column {
@@ -51,55 +59,60 @@ button {
     height: auto;
 }
 
-h1 {
-    font-family: 'Yeseva One', cursive;
-    margin: 0;
-    padding: 5px;
-    font-size: 3em;
-    color: #FF0073;
-    text-shadow: 2px 2px #252525;
-}
-
 h2 {
-    font-family: 'Poppins', sans-serif;
-    color: #252525;
-    font-size: 2.5em;
-    position: sticky;
-    top: 0;
-    background-color: white;
-    margin: 0;
-    padding: 10px 0;
-    width: 100%;
+    font-family: 'Yeseva One', cursive;
     text-align: center;
-}
-
-h3 {
-    padding-right: 15px;
 }
 
 #header {
-    margin-top: 15px;
     width: 100%;
-    height: 200px;
+    height: 650px;
     text-align: center;
+    background-image: url(./Images/group.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
-#logo {
-    height: 100px;
-    width: auto;
+#login-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 15px;
+}
+
+#login-form {
+    background-color: white;
+    padding: 20px;
+    position: absolute;
+    top: 50%;
+    display: none;
 }
 
 .main {
-    height: 100vh;
+    display: flex;
+    flex-direction: row; 
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    font-family: 'Yeseva One', cursive;
+
+}
+
+p {
+    font-family: 'Poppins', sans-serif;
 }
 
 .row {
     display: flex;
-    align-items: center;
 }
 
 select {
     padding: 5px;
+    display: initial;
 }
 
 @media only screen and (max-width: 750px) {  
