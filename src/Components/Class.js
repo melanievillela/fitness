@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Button} from 'react-materialize'
 
 class Class extends Component {
 
@@ -7,7 +8,11 @@ class Class extends Component {
     	const classSelection = e.target.name;
     	const disabledBtn = e.target.querySelector("button");
     	this.props.selectedClass(classSelection);
-    	disabledBtn.setAttribute("disabled", true);
+		disabledBtn.setAttribute("disabled", true);
+		//Scroll into Calendar view
+		const navHeight = document.querySelector(".nav-wrapper").clientHeight;
+		document.querySelector("#classes").scrollIntoView();
+		window.scrollBy(0, -navHeight);
   	}
 
   	render() {
@@ -24,7 +29,7 @@ class Class extends Component {
             		<option value="times">{this.props.time}</option>
             	</select>
             	<br />
-            	<button className="add" btnid={this.props.name}>Enroll</button>
+				<Button className="add purple darken-3" btnid={this.props.name} waves='light'>Enroll</Button>
           	</form>
         </div>
     )

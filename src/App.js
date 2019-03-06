@@ -3,12 +3,22 @@ import React, { Component } from 'react';
 import './App.css';
 import Calendar from './Components/Calendar' 
 import Classes from './Components/Classes' 
+import Contact from './Components/Contact' 
 import Header from './Components/Header' 
 
 class App extends Component {
 	//Want to add multiple time slots in the future and loop through as options
   	state = {
-		classes2: [],
+		classes2: [
+			{
+				className: "",
+				classDay: "",
+				classTime: "",
+				image: "",
+				instructor: "",
+				summary:""
+			}
+		],
 	classes: [
 	  {
 		className: "Absolute Abs",
@@ -80,16 +90,29 @@ class App extends Component {
 				}))  
 			}        
 		});
+
+		//Show calendar & hide main classes info
+		document.querySelector("#calendar").style.zIndex = "1";
+		document.querySelector("#classInfo").childNodes.forEach(child => {
+			child.classList.add("hide");
+		});
  	}
 
 	//Remove class & update state of enrolled
 	removedClass = (name) => {
 		const enrolledArray = this.state.enrolled;
-
 		const updatedEnrolledArray = enrolledArray.filter(item => item.className !== name);
 		this.setState({
 		enrolled: updatedEnrolledArray
 		})
+
+		//Hide calendar & show main classes info
+		if(this.state.enrolled.length <= 1) {
+			document.querySelector("#calendar").style.zIndex = "-1";
+			document.querySelector("#classInfo").childNodes.forEach(child => {
+				child.classList.remove("hide");
+			});
+		}
 	}
 		
 	render() {
@@ -97,13 +120,14 @@ class App extends Component {
 		return (
 			<div className="app">
 				<Header />
-				<h2>Classes</h2>  
-				<Classes {...this.state} selectedClass={this.selectedClass} />
+				<div id="main">
+					<Classes {...this.state} selectedClass={this.selectedClass} />
+					<Calendar {...this.state} removedClass={this.removedClass} />
+				</div>
+				<Contact />
 			</div>
 		);
 	}
 }
 
 export default App;
-
-//<Calendar {...this.state} removedClass={this.removedClass} />

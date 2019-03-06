@@ -1,25 +1,35 @@
 #about-container {
     width: 100%;
     height: 100%;
-    background-color: rgb(0, 0, 0, .5);
 }
 
 #about {
     align-self: flex-end;
+    z-index: -1;
 }
 
-button {
-    padding: 10px;
-    margin-top: 15px;
+.btn {
+    margin: 15px;
 }
 
 #calendar {
-    width: 40%;
+    width: 25%;
     overflow-y: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background-color: white;
+    padding-bottom: 15px;
+}
+
+#calendar > div:first-of-type {
+    width: 100%;
 }
 
 .calendar-item {
-    width: 200px;
+    text-align: center;
+    width: 75%;
     font-family: 'Poppins', sans-serif;
     padding: 10px;
 }
@@ -28,8 +38,11 @@ button {
     width: 30%;
     padding: 15px 25px;
     font-family: 'Poppins', sans-serif;
-    border-bottom: 1px solid #bdbdbd;
     justify-content: space-around;
+}
+
+#classInfo {
+    width: 30%;
 }
 
 #classes {
@@ -44,8 +57,22 @@ button {
 }
 
 .close {
-    padding-bottom: 10px;
+    padding: 10px;
     cursor: pointer;
+}
+
+.collapsible-body {
+    border-bottom: none;
+}
+
+.collapsible-header {
+    min-height: 5rem;
+    font-size: 3.56rem;
+    font-family: 'Yeseva One', cursive;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #6a1b9a;
 }
 
 .column {
@@ -54,14 +81,28 @@ button {
     align-items: center;
 }
 
+#contact {
+    padding-bottom: 25px;
+}
+
+#contact-form {
+    width: 25%;
+}
+
+#enroll {
+    float: right;
+}
+
 .fitness-images {
     width: 100%;
     height: auto;
 }
 
-h2 {
+h2, h3 {
     font-family: 'Yeseva One', cursive;
     text-align: center;
+    color: #aaaaaa;
+    text-shadow: 1.5px 1px 1px black;
 }
 
 #header {
@@ -72,6 +113,10 @@ h2 {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+}
+
+.hide {
+    visibility: hidden;
 }
 
 #login-btn {
@@ -89,9 +134,16 @@ h2 {
     display: none;
 }
 
-.main {
-    display: flex;
-    flex-direction: row; 
+#main {
+    position: relative;
+    background-color: white;
+}
+
+.minimize {
+    align-self: flex-end;
+    padding: 5px;
+    font-size: 30px;
+    cursor: pointer;
 }
 
 .navbar {
@@ -99,7 +151,7 @@ h2 {
     top: 0;
     left: 0;
     font-family: 'Yeseva One', cursive;
-
+    z-index: 1000;
 }
 
 p {
@@ -114,42 +166,3 @@ select {
     padding: 5px;
     display: initial;
 }
-
-@media only screen and (max-width: 750px) {  
-    .app {
-        flex-direction: column;
-    }
-
-    #calendar {
-        width: 100%;
-        margin-bottom: 25px;
-    }
-
-    #classes-outer {
-        width: 100%
-    }
-
-    .main {
-        height: auto;
-    }
-  }
-
-  @media only screen and (max-width: 550px) { 
-    .description {
-        flex-direction: column !important;
-    } 
-
-    .description h3 {
-        margin-bottom: 0;
-    }
-}
-
-  @media only screen and (max-width: 375px) {     
-    h1 {
-        font-size: 2em;
-    }
-
-    #header {
-        height: 150px;
-    }
-  }
