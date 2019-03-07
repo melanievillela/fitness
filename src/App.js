@@ -1,24 +1,16 @@
 import React, { Component } from 'react';
-//import firebase from './firebase.js';
+import firebase, { auth, provider } from './firebase.js';
 import './App.css';
 import Calendar from './Components/Calendar' 
 import Classes from './Components/Classes' 
 import Contact from './Components/Contact' 
 import Header from './Components/Header' 
+import Map from './Components/Map' 
 
 class App extends Component {
 	//Want to add multiple time slots in the future and loop through as options
   	state = {
-		classes2: [
-			{
-				className: "",
-				classDay: "",
-				classTime: "",
-				image: "",
-				instructor: "",
-				summary:""
-			}
-		],
+		classes2: {},
 	classes: [
 	  {
 		className: "Absolute Abs",
@@ -78,6 +70,16 @@ class App extends Component {
 	],
 	enrolled: []
   }
+	  
+	componentDidMount() {
+		const itemsRef = firebase.database().ref('Instructors');
+		itemsRef.on("value", (snapshot) => {
+			let items = snapshot.val();
+			this.setState({
+				classes2: items
+			})
+		})
+	}
 
     //Get user class selection & update state of enrolled
   	selectedClass = (name) => { 
@@ -124,7 +126,10 @@ class App extends Component {
 					<Classes {...this.state} selectedClass={this.selectedClass} />
 					<Calendar {...this.state} removedClass={this.removedClass} />
 				</div>
-				<Contact />
+				<div id="footer">
+					<Contact />
+					<Map />
+				</div>
 			</div>
 		);
 	}

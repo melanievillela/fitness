@@ -83,10 +83,8 @@
 
 #contact {
     padding-bottom: 25px;
-}
+    width: 35%;
 
-#contact-form {
-    width: 25%;
 }
 
 #enroll {
@@ -98,11 +96,20 @@
     height: auto;
 }
 
+#footer {
+    display: flex;
+}
+
 h2, h3 {
     font-family: 'Yeseva One', cursive;
     text-align: center;
     color: #aaaaaa;
     text-shadow: 1.5px 1px 1px black;
+}
+
+h5 {
+    font-family: 'Yeseva One', cursive;
+    text-shadow: 1.5px 1px 1px white;
 }
 
 #header {
@@ -117,6 +124,10 @@ h2, h3 {
 
 .hide {
     visibility: hidden;
+}
+
+#address-card {
+    text-align: center;
 }
 
 #login-btn {
