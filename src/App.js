@@ -10,78 +10,22 @@ import Map from './Components/Map'
 class App extends Component {
 	//Want to add multiple time slots in the future and loop through as options
   	state = {
-		classes2: {},
-	classes: [
-	  {
-		className: "Absolute Abs",
-		classDay: "Monday",
-		classTime: "3:00 PM",
-		image: "Absolute_Abs.jpg",
-		instructor: "Georgia Thompson",
-		summary: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-				  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-				  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-				  Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`
-	  },
-	  {
-		className: "Sultry Stretchers",
-		classDay: "Tuesday",
-		classTime: "9:00 AM",
-		image: "Sultry_Stretchers.jpg",
-		instructor: "Anita Mendoza",
-		summary: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-				  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-				  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-				  Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`
-	  },
-	  {
-		className: "Kickstart Cardio",
-		classDay: "Wednesday",
-		classTime: "3:00 PM",
-		image: "Kickstart_Cardio.jpg",
-		instructor: "Natalie Jones",
-		summary: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-				  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-				  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-				  Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`
-	  },
-	  {
-		className: "Glorious Glutes",
-		classDay: "Thursday",
-		classTime: "9:00 AM",
-		image: "Glorious_Glutes.jpg",
-		instructor: "Stephanie Larson",
-		summary: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-				  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-				  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-				  Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`
-	  },
-	  {
-		className: "Mindful Meditations",
-		classDay: "Friday",
-		classTime: "3:00 PM",
-		image: "Mindful_Meditations.jpg",
-		instructor: "Gia Ashani",
-		summary: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-				  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-				  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-				  Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`
-	  }
-	],
-	enrolled: []
-  }
+		classes2: [],
+		enrolled: []
+	}
 	  
 	componentDidMount() {
 		const itemsRef = firebase.database().ref('Instructors');
 		itemsRef.on("value", (snapshot) => {
-			let items = snapshot.val();
+			//Object to array
+			let items = Object.entries(snapshot.val());
 			this.setState({
 				classes2: items
 			})
 		})
 	}
 
-    //Get user class selection & update state of enrolled
+	//Get user class selection & update state of enrolled
   	selectedClass = (name) => { 
 		const classArray = this.state.classes;
 	
@@ -118,12 +62,13 @@ class App extends Component {
 	}
 		
 	render() {
+		const received = this.state.classes2.length > 0;
 
 		return (
 			<div className="app">
 				<Header />
 				<div id="main">
-					<Classes {...this.state} selectedClass={this.selectedClass} />
+					{received ? <Classes {...this.state} selectedClass={this.selectedClass} /> : console.log("Loading")}					
 					<Calendar {...this.state} removedClass={this.removedClass} />
 				</div>
 				<div id="footer">

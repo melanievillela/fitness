@@ -13,7 +13,12 @@ class Class extends Component {
 		const navHeight = document.querySelector(".nav-wrapper").clientHeight;
 		document.querySelector("#classes").scrollIntoView();
 		window.scrollBy(0, -navHeight);
-  	}
+	  }
+	  
+	objArray = () => {
+		const objs = Object.entries(this.state.classes2);
+		console.log(objs)
+	}
 
   	render() {
 
