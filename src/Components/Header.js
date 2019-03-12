@@ -20,6 +20,12 @@ class Header extends Component {
 		window.scrollBy(0, -navHeight);
 	}
 
+	scrollToContact = () => {
+		const navHeight = document.querySelector(".nav-wrapper").clientHeight;
+		document.querySelector("#contact").scrollIntoView();
+		window.scrollBy(0, -navHeight);
+	}
+
   	render() {
 		return (
 			<div id="header">
@@ -40,7 +46,7 @@ class Header extends Component {
 				<Navbar className="navbar purple darken-3" brand="Lotus Fitness" left>					
 					<NavItem onClick={this.displayAbout}>About</NavItem>
 					<NavItem onClick={this.scrollToClasses}>Classes</NavItem>
-					<NavItem href="#contact">Contact Us</NavItem>
+					<NavItem onClick={this.scrollToContact}>Contact Us</NavItem>
 				</Navbar>				
 			</div>
 		)
