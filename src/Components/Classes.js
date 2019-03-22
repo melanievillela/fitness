@@ -3,7 +3,7 @@ import Class from './Class'
 
 class Classes extends Component {
 	render() {
-		const classesArray = this.props.classes2;
+		const classesArray = this.props.classes;
 		const classInfo = [];
 		//Turn each class object into iterable item
 		classesArray.forEach(item => {

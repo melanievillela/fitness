@@ -10,7 +10,7 @@ import Map from './Components/Map'
 class App extends Component {
 	//Want to add multiple time slots in the future and loop through as options
   	state = {
-		classes2: [],
+		classes: [],
 		enrolled: []
 	}
 	  
@@ -20,7 +20,7 @@ class App extends Component {
 			//Object to array
 			let items = Object.entries(snapshot.val());
 			this.setState({
-				classes2: items
+				classes: items
 			})
 		})
 	}
@@ -30,7 +30,7 @@ class App extends Component {
 		const classArray = this.state.classes;
 	
 		classArray.forEach(classItem => {
-			if(name === classItem.className) { 
+			if(name === Object.keys(classItem[1].Classes)[0]) { 
 				this.setState(previousState => ({
 					enrolled: [...previousState.enrolled, classItem]
 				}))  
@@ -47,6 +47,7 @@ class App extends Component {
 	//Remove class & update state of enrolled
 	removedClass = (name) => {
 		const enrolledArray = this.state.enrolled;
+		console.log(enrolledArray)
 		const updatedEnrolledArray = enrolledArray.filter(item => item.className !== name);
 		this.setState({
 		enrolled: updatedEnrolledArray
@@ -62,14 +63,15 @@ class App extends Component {
 	}
 		
 	render() {
-		const received = this.state.classes2.length > 0;
+		const received = this.state.classes.length > 0;
 
 		return (
 			<div className="app">
 				<Header />
 				<div id="main">
-					{received ? <Classes {...this.state} selectedClass={this.selectedClass} /> : console.log("Loading")}					
-					<Calendar {...this.state} removedClass={this.removedClass} />
+					{received ? <Classes {...this.state} selectedClass={this.selectedClass} /> : console.log("Loading classes please wait")}
+					<Calendar {...this.state} removedClass={this.removedClass} />				
+					
 				</div>
 				<div id="footer">
 					<Contact />

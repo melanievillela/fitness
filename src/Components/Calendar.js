@@ -21,16 +21,21 @@ class Calendar extends Component {
 
 	render() {
 		const enrolledArray = this.props.enrolled;
+		//Turn each class object into iterable item
+		const enrolledInfo = [];
+		enrolledArray.forEach(item => {
+            enrolledInfo.push(Object.entries(item[1].Classes))
+		});
 
     return (
 		<Collapsible>
 			<CollapsibleItem id="calendar" header="Calendar" icon="add">			  	
-				{enrolledArray.map((item, index) =>
+				{enrolledInfo.map((item, index) =>
 					<div key={index} className="calendar-item">
-						<h5>{item.className}</h5>
-						<p>{item.classDay} </p>
-						<p>{item.classTime}</p>
-						<Button className="add purple darken-3" btnid={item.className} waves='light' onClick={this.removeClass}>Remove</Button>
+						<h5>{item[0][0]}</h5>
+						<p>{item[0][1].classDay} </p>
+						<p>{item[0][1].classTime}</p>
+						<Button className="add purple darken-3" btnid={item[0][0]} waves='light' onClick={this.removeClass}>Remove</Button>
 					</div>
 				)}  
 				<Button className="purple lighten-3 black-text" id="enroll" waves='light' >Checkout</Button>     
@@ -41,23 +46,3 @@ class Calendar extends Component {
 }
 
 export default Calendar;
-
-/*
-
-		<div className="column" id="calendar">
-			<i className="material-icons minimize" onClick={this.hideCalendar}>minimize</i>
-			<br /> 
-			<h2>Calendar</h2> 
-			<div className="column">
-			{enrolledArray.map((item, index) =>
-				<div key={index} className="calendar-item">
-				<h5>{item.className}</h5>
-				<p>{item.classDay} </p>
-				<p>{item.classTime}</p>
-				<Button className="add purple darken-3" btnid={item.className} waves='light' onClick={this.removeClass}>Remove</Button>
-				</div>
-			)}       
-			</div>
-			<Button className="add purple lighten-3 black-text" id="enroll" waves='light' >Enroll</Button>
-	  </div>
-	  */
