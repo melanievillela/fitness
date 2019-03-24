@@ -47,8 +47,8 @@ class App extends Component {
 	//Remove class & update state of enrolled
 	removedClass = (name) => {
 		const enrolledArray = this.state.enrolled;
-		console.log(enrolledArray)
-		const updatedEnrolledArray = enrolledArray.filter(item => item.className !== name);
+		
+		const updatedEnrolledArray = enrolledArray.filter(item => Object.keys(item[1].Classes)[0]!== name);		
 		this.setState({
 		enrolled: updatedEnrolledArray
 		})
