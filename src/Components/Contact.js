@@ -25,8 +25,8 @@ class Contact extends Component {
 
                 <h3>Get In Touch!</h3>
                 <div className="column">
-                    <Input s={6} label="First Name" />
-                    <Input s={6} label="Last Name" />
+                    <Input s={12} label="First Name" />
+                    <Input s={12} label="Last Name" />
                     <Input type="email" label="Email" s={12} />
                     <br />
                     <Input type='textarea' label="Message"/>

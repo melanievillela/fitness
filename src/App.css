@@ -8,12 +8,16 @@
     z-index: -1;
 }
 
+#address-card {
+    text-align: center;
+}
+
 .btn {
     margin: 15px;
 }
 
 #calendar {
-    width: 25%;
+    width: 30%;
     overflow-y: auto;
     position: absolute;
     top: 0;
@@ -30,14 +34,12 @@
 
 .calendar-item {
     text-align: center;
-    width: 75%;
     font-family: 'Poppins', sans-serif;
     padding: 10px;
 }
 
 .class {
     width: 30%;
-    height: 1000px;
     padding: 15px 25px;
     font-family: 'Poppins', sans-serif;
     justify-content: space-around;
@@ -65,11 +67,14 @@
 
 .collapsible-body {
     border-bottom: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .collapsible-header {
     min-height: 5rem;
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-family: 'Yeseva One', cursive;
     display: flex;
     justify-content: center;
@@ -98,6 +103,11 @@
     height: auto;
 }
 
+form {
+    height: 945px;
+    width: 100%;
+}
+
 #footer {
     display: flex;
 }
@@ -111,18 +121,19 @@ h2, h3 {
 
 h4 {
     text-align: center;
+    min-height: 75px;
 }
 
 h5 {
+    text-align: center;
     font-family: 'Yeseva One', cursive;
     text-shadow: 1.5px 1px 1px white;
+    min-height: 50px;
 }
 
 #header {
     width: 100%;
-    height: 650px;
     text-align: center;
-    background-image: url(./Images/group.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -132,8 +143,8 @@ h5 {
     visibility: hidden;
 }
 
-#address-card {
-    text-align: center;
+.input-field {
+    width: 90%;
 }
 
 #login-btn {
@@ -183,3 +194,72 @@ select {
     padding: 5px;
     display: initial;
 }
+
+@media only screen and (min-width: 300px) {
+    #header {
+        background-image: url(./Images/Group-S.jpg);
+        min-height: 300px;
+    }
+}
+
+@media only screen and (min-width: 500px) {
+    #header {
+        background-image: url(./Images/Group-M.jpg);
+        min-height: 400px;
+    }
+}
+
+@media only screen and (min-width: 800px) {
+    #header {
+        background-image: url(./Images/Group-L.jpg);
+        min-height: 600px;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    #header {
+        background-image: url(./Images/Group-XL.jpg);
+        min-height: 800px;
+    }
+}
+
+@media only screen and (min-width: 1800px) {
+    #header {
+        background-image: url(./Images/Group-XXL.jpg);
+        min-height: 1000px;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    #contact {
+        width: 90%;
+    }
+    
+    #footer {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media only screen and (max-width: 750px) {
+    #classes {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #classInfo {
+        width: 90%;
+    }
+
+    .class {
+        width: 90%;
+    }
+
+    #calendar {
+        width: 100%;
+    }
+
+    form {
+        height: auto;
+    }
+  }

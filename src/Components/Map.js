@@ -7,6 +7,7 @@ const Location = ({ text }) =>
     </div>;
 
 class Map extends Component {
+
     static defaultProps = {
         center: {
             lat: 29.760427,
@@ -16,8 +17,9 @@ class Map extends Component {
     };
 
   	render() {
+
 		return (
-			<div style={{ height: '100vh', width: '100%' }}>
+			<div style={{ height: '100vh', width: '100%' }} id="map">
                 <GoogleMapReact
                     bootstrapURLKeys={{ key: "AIzaSyA-Ov5EC9q8ZJgtV04pkLZmbCaeG_oKVaY" }}
                     defaultCenter={this.props.center}
