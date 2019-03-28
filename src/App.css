@@ -1,13 +1,3 @@
-#about-container {
-    width: 100%;
-    height: 100%;
-}
-
-#about {
-    align-self: flex-end;
-    z-index: -1;
-}
-
 #address-card {
     text-align: center;
 }
@@ -137,6 +127,7 @@ h5 {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    position: relative;
 }
 
 .hide {
@@ -180,6 +171,16 @@ h5 {
     left: 0;
     font-family: 'Yeseva One', cursive;
     z-index: 1000;
+}
+
+#offer {
+    background-color: rgb(206, 147, 216, .85)
+}
+
+#offer-container {
+    position: absolute;
+    top: 70px;
+    width: 100%;
 }
 
 p {
