@@ -8,6 +8,10 @@ class Header extends Component {
 		logo.addEventListener("click", this.scrollToTop)
 	}
 
+	login(e) {
+		e.preventDefault();
+	}
+
 	scrollToClasses = () => {
 		const navHeight = document.querySelector(".nav-wrapper").clientHeight;
 		document.querySelector("#classes").scrollIntoView();
@@ -29,7 +33,8 @@ class Header extends Component {
 
 		return (
 			<div id="header">
-				<Navbar className="navbar purple darken-3" brand="Lotus Fitness" left>					
+				<Navbar className="navbar purple darken-3" brand="Lotus Fitness" left>		
+					<NavItem onClick={this.login}>Login</NavItem>			
 					<NavItem onClick={this.scrollToClasses}>Classes</NavItem>
 					<NavItem onClick={this.scrollToContact}>Contact Us</NavItem>
 				</Navbar>
