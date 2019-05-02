@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Navbar, NavItem, Col, Row, CardPanel} from 'react-materialize'
+import {Navbar, NavItem} from 'react-materialize'
 
 class Header extends Component {
 
@@ -8,7 +8,7 @@ class Header extends Component {
 		logo.addEventListener("click", this.scrollToTop)
 	}
 
-	login(e) {
+	login = (e) => {
 		e.preventDefault();
 	}
 
@@ -33,19 +33,11 @@ class Header extends Component {
 
 		return (
 			<div id="header">
-				<Navbar className="navbar purple darken-3" brand="Lotus Fitness" left>		
-					<NavItem onClick={this.login}>Login</NavItem>			
+				<Navbar className="navbar purple darken-3" brand="Lotus Fitness" left>	
+					<NavItem onClick={this.login}><i className="material-icons">person</i></NavItem>	
 					<NavItem onClick={this.scrollToClasses}>Classes</NavItem>
 					<NavItem onClick={this.scrollToContact}>Contact Us</NavItem>
 				</Navbar>
-				<Row id="offer-container">
-					<Col l={6} s={12}>
-						<CardPanel id="offer">
-							<h4 className="white-text">TRY US FOR FREE</h4>
-							<p>Try 5 classes for free. Simply enroll below.</p>
-						</CardPanel>
-					</Col>
-				</Row>
 			</div>
 		)
   	}

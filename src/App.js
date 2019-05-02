@@ -70,8 +70,7 @@ class App extends Component {
 				<Header />
 				<div id="main">
 					{received ? <Classes {...this.state} selectedClass={this.selectedClass} /> : console.log("Loading classes please wait")}
-					<Calendar {...this.state} removedClass={this.removedClass} />				
-					
+					<Calendar {...this.state} removedClass={this.removedClass} />		
 				</div>
 				<div id="footer">
 					<Contact />
